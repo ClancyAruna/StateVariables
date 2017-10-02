@@ -1,13 +1,14 @@
-//moving a character with WASD
-//Dan Schellenberg
+//I adapted Dan Schellenberg's WASD movement into the program, and I wanted to use state variables to allow the scene to change
+//To be continued, I guess
+//Caelan Apesland
 //Sept 19, 2017
 
 //globals
 float x, y;
 float dx, dy;
 boolean movingUp, movingDown, movingLeft, movingRight;
-PImage sonic;
-float sonicScale;
+PImage frisk;
+float friskScale;
 
 void setup() {
   size(800, 800);
@@ -25,8 +26,8 @@ void setup() {
   movingRight = false;
   
   //load character
-  sonic = loadImage("sonic.png");
-  sonicScale = 0.3;
+  frisk = loadImage("sonic.png");
+  friskScale = 0.3;
 }
 
 
@@ -34,12 +35,24 @@ void draw() {
   background(255);
 
   moveCharacter();
+  ;
   //displayDefaultCharacter();
-  displaySonicCharacter();
+  displayFriskCharacter();
+  displayBoarderOfRoom();
 }
 
-void displaySonicCharacter() {
-  image(sonic, x, y, sonic.width*sonicScale, sonic.height*sonicScale);
+void displayFriskCharacter() {
+  image(frisk, x, y, frisk.width*friskScale, frisk.height*friskScale);
+}
+
+void displayBoarderOfRoom() {
+  fill(0);
+  rect(0,0,300,60);
+  rect(500,0,300,60);
+  rect(700,0,100,800);
+  rect(0,0,100,800);
+  rect(0,700,800,100);
+  
 }
 
 void displayDefaultCharacter() {
@@ -50,6 +63,10 @@ void displayDefaultCharacter() {
 void moveCharacter() {
   if (movingUp) {
     y -= dy;
+    //if(y == 0); {
+    //  movingUp = false;
+    //}
+      
   }
   if (movingDown) {
     y += dy;
