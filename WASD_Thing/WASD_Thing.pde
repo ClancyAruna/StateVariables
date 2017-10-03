@@ -10,6 +10,7 @@ boolean movingUp, movingDown, movingLeft, movingRight;
 PImage frisk;
 float friskScale;
 
+
 void setup() {
   size(800, 800);
 
@@ -45,13 +46,17 @@ void displayFriskCharacter() {
   image(frisk, x, y, frisk.width*friskScale, frisk.height*friskScale);
 }
 
+//void generalBoarders() {
+//  if (x,y location = displayBoarderOfRoom) {
+//}
+
 void displayBoarderOfRoom() {
   fill(0);
-  rect(0,0,300,60);
-  rect(500,0,300,60);
-  rect(700,0,100,800);
-  rect(0,0,100,800);
-  rect(0,700,800,100);
+  rect(0,0,300,60); //Top left
+  rect(500,0,300,60); //Top Right
+  rect(700,0,100,800); //Right
+  rect(0,0,100,800); //Left
+  rect(0,700,800,100); // Bottom 
   
 }
 
