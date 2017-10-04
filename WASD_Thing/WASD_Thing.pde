@@ -9,6 +9,7 @@ float dx, dy;
 boolean movingUp, movingDown, movingLeft, movingRight;
 PImage frisk;
 float friskScale;
+int state;
 
 
 void setup() {
@@ -19,6 +20,9 @@ void setup() {
   y = height/2;
   dx = 5;
   dy = 5;
+  
+  //creating the state variable to allow the character to move between screens
+  state = 1;
 
   //motion control
   movingUp = false;
@@ -39,7 +43,9 @@ void draw() {
   ;
   //displayDefaultCharacter();
   displayFriskCharacter();
-  displayBoarderOfRoom();
+  displayRoomOne();
+  //displayRoomTwo();
+  //displayRoomThree();
 }
 
 void displayFriskCharacter() {
@@ -50,19 +56,43 @@ void displayFriskCharacter() {
 //  if (x,y location = displayBoarderOfRoom) {
 //}
 
-void displayBoarderOfRoom() {
+void displayRoomOne() {
   fill(0);
   rect(0,0,300,60); //Top left
   rect(500,0,300,60); //Top Right
   rect(700,0,100,800); //Right
   rect(0,0,100,800); //Left
   rect(0,700,800,100); // Bottom 
+  fill(255,0,255);
+  rect(300,0,200,20);
   
+}
+
+void displayRoomTwo() {
+  fill(0);
+  rect(0,740,300,60); //Bottom Left
+  rect(0,0,100,800); //Left
+  rect(500,740,300,60); //Bottom Right
+  rect(0,0,800,60); //Top
+  rect(700,0,100,300); //Right Top
+  rect(700,500,100,300); //Right Bottom
+  
+}
+
+void displayRoomThree() {
+  fill(0);
+  rect(0,0,100,300); //Right Bottom
+  rect(0,500,100,300); //Right Bottom
+  rect(0,0,800,60); //Top
+  rect(0,700,800,100); // Bottom 
+  rect(700,0,100,300); //Right Top
+  rect(700,500,100,300); //Right Bottom
 }
 
 void displayDefaultCharacter() {
   fill(255);
   rect(x, y, 30, 30);
+  
 }
 
 void moveCharacter() {
