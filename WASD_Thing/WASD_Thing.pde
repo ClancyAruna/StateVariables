@@ -31,7 +31,7 @@ void setup() {
   movingRight = false;
   
   //load character
-  frisk = loadImage("sonic.png");
+  frisk = loadImage("frisk.png");
   friskScale = 0.3;
 }
 
@@ -43,9 +43,10 @@ void draw() {
   ;
   //displayDefaultCharacter();
   displayFriskCharacter();
-  displayRoomOne();
-  //displayRoomTwo();
+  //displayRoomOne();
+  displayRoomTwo();
   //displayRoomThree();
+  nextRoom();
 }
 
 void displayFriskCharacter() {
@@ -64,7 +65,7 @@ void displayRoomOne() {
   rect(0,0,100,800); //Left
   rect(0,700,800,100); // Bottom 
   fill(255,0,255);
-  rect(300,0,200,20);
+  rect(300,0,200,20); //hitbox to go to next room
   
 }
 
@@ -76,6 +77,9 @@ void displayRoomTwo() {
   rect(0,0,800,60); //Top
   rect(700,0,100,300); //Right Top
   rect(700,500,100,300); //Right Bottom
+  fill(255,0,255);
+  rect(300,780,200,20);//Previous Room hitbox
+  rect(780,300,20,200);//Next Room hitbox
   
 }
 
@@ -87,6 +91,15 @@ void displayRoomThree() {
   rect(0,700,800,100); // Bottom 
   rect(700,0,100,300); //Right Top
   rect(700,500,100,300); //Right Bottom
+}
+
+
+void nextRoom() {
+  if (y < 20){
+    state = state + 1;
+    println(state);
+  }
+  
 }
 
 void displayDefaultCharacter() {
