@@ -43,19 +43,18 @@ void draw() {
   ;
   //displayDefaultCharacter();
   displayFriskCharacter();
-  //displayRoomOne();
-  displayRoomTwo();
-  //displayRoomThree();
+  if(state == 1);
+    displayRoomOne();
+  if(state == 2);
+    displayRoomTwo();
+  if(state == 3);
+    displayRoomThree();
   nextRoom();
 }
 
 void displayFriskCharacter() {
   image(frisk, x, y, frisk.width*friskScale, frisk.height*friskScale);
 }
-
-//void generalBoarders() {
-//  if (x,y location = displayBoarderOfRoom) {
-//}
 
 void displayRoomOne() {
   fill(0);
@@ -91,6 +90,9 @@ void displayRoomThree() {
   rect(0,700,800,100); // Bottom 
   rect(700,0,100,300); //Right Top
   rect(700,500,100,300); //Right Bottom
+  fill(255,0,255);
+  rect(780,300,20,200);//Next Room hitbox
+  rect(0,300,20,200);//Next Room hitbox
 }
 
 
@@ -98,6 +100,7 @@ void nextRoom() {
   if (y < 20){
     state = state + 1;
     println(state);
+    
   }
   
 }
