@@ -1,7 +1,12 @@
 //I adapted Dan Schellenberg's WASD movement into the program, and I wanted to use state variables to allow the scene to change
 //To be continued, I guess
+
+//WASD movement for the character sprite
+
+//I had trouble with making the character appear where they were supposed to after switching rooms
+
 //Caelan Apesland
-//Sept 19, 2017
+//Oct 13, 2017
 
 //globals
 float x, y;
