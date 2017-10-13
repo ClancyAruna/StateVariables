@@ -58,6 +58,7 @@ void draw() {
 
 
 void displayFriskCharacter() {
+  imageMode(CENTER);
   image(frisk, x, y, frisk.width*friskScale, frisk.height*friskScale);
 }
 
@@ -95,17 +96,23 @@ void displayRoomThree() {
   rect(700, 500, 100, 300); //Right Bottom
   fill(255, 0, 255);
   rect(780, 300, 20, 200);//Next Room hitbox
-  rect(0, 300, 20, 200);//Next Room hitbox
+  rect(0, 300, 20, 200);//Previous Room hitbox
 }
 
 
-void nextRoom() { 
+void nextRoom() { // allows the rooms to change
   if (state == 1 && y < 20) {
     state = state + 1;
   }
   if (state == 2 && x > 780) {
     state = state + 1;
     }
+  if (state == 2 && y > 780) {
+    state = state - 1;
+  }
+  if (state == 3 && x < 20) {
+    state = state - 1;
+  }
 }
 
 
@@ -113,6 +120,7 @@ void displayDefaultCharacter() {
   fill(255);
   rect(x, y, 30, 30);
 }
+
 
 
 //Character Movement
